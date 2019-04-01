@@ -6,24 +6,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-
 /**
- * @Classname SpringTestTest
+ * @Classname SpringTest
  * @Description TODO
- * @Date 2019/3/31/031 22:26
- * @Created by cuiwjava
+ * @Date 2019/4/1 12:54
+ * @Created by cuiwei34
  */
-// SpringJUnit4 运行
 @RunWith(SpringJUnit4ClassRunner.class)
-// 上下文配置对象
-@ContextConfiguration("classpath:springtest.xml")
-public class SpringTestTest {
+@ContextConfiguration("classpath:SpringTest-context.xml")
+public class SpringTest {
+	@Autowired
+	private BeanTest beanTest;
 
-    @Autowired
-    private SomeBean someBean;
+	@Test
+	public void test(){
 
-    @Test
-    public void testIoC(){
-        someBean.doWork();
-    }
+		beanTest.doaction();
+
+	}
 }

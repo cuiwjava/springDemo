@@ -9,7 +9,7 @@ package com.cuiwjava.hello;
 public class HelloWorld {
     private String username;
 
-    HelloWorld(){
+    public HelloWorld(){
 
     }
     public void setUsername(String username) {

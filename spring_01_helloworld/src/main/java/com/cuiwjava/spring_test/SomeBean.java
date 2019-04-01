@@ -7,6 +7,7 @@ package com.cuiwjava.spring_test;
  * @Created by cuiwjava
  */
 public class SomeBean {
+
     public void doWork(){
         System.out.println(" doWork ");
     }

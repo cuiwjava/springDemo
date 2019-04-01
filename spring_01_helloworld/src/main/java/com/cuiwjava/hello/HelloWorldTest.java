@@ -1,11 +1,11 @@
 package com.cuiwjava.hello;
 
-import org.junit.jupiter.api.Test;
+
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
-
+import org.junit.Test;
 import java.beans.BeanInfo;
 import java.beans.Introspector;
 import java.beans.PropertyDescriptor;
@@ -43,9 +43,9 @@ public class HelloWorldTest {
         world = factory.getBean("helloWorld", HelloWorld.class);
         world.sayHello();
     }
-
+    @Test
     void testIoCMock() throws Exception {
-        String className = "cn.cuiwjava.hello.HelloWorld";
+        String className = "com.cuiwjava.hello.HelloWorld";
         HelloWorld world = null;
         Class clzz = Class.forName(className);
         Constructor con = clzz.getConstructor();

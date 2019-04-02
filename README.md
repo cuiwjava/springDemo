@@ -31,4 +31,27 @@ Spring IoC管理bean的原理:
 4. 调用getBean方法的时候，从容器中返回对象实例；
 结论:就是把店面从JAVA文件中转移到了XML中
 
+Spring IoC容器(Container)
+BeanFactory:Spring最底层的接口，只提供了IoC功能，负责创建、
+组装、管理bean，在应用中，一般不使用BeanFactory,而推荐使用
+ApplicationContext 应用上下文
+
+ApplicationContext接口继承了BeanFactory，除此之外
+还提供AOP集成，国际化处理，事件传播，统一资源加载等功能。
+
+
+```
+public interface ApplicationContext 
+           extends EnvironmentCapable, 
+           ListableBeanFactory, 
+           HierarchicalBeanFactory, 
+           MessageSource, 
+           ApplicationEventPublisher, 
+           ResourcePatternResolver {
+   }
+```
+
+
+
+
 

@@ -16,12 +16,14 @@ public class ContainerTest {
 
     @Autowired
     private Person person;
-//    @Autowired
-//    private BeanFactory beanFactory;
-//    @Autowired
-//    private ApplicationContext ctx;
+    @Autowired
+    private BeanFactory beanFactory;
+    @Autowired
+    private ApplicationContext ctx;
     @Test
     public void test1(){
         System.out.println(person);
+        System.out.println("beanFactory: "+beanFactory);
+        System.out.println("ctx is: "+ctx);
     }
 }

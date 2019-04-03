@@ -51,6 +51,14 @@ public interface ApplicationContext
    }
 ```
 
+bean实例化方式
+1. 构造器实例化(无参数构造器)，最标准，使用最多
+2. 静态工厂方法实例化：解决系统遗留问题
+3. 实例工厂方法实例化：解决系统遗留问题
+4. 实现FactoryBean接口实例化：实例工厂变种，如集成MyBatis框架使用:
+org.mybatis.spring.SqlSessionFactoryBean
+
+
 
 
 

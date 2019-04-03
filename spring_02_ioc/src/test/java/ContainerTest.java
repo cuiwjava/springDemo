@@ -1,6 +1,4 @@
-package com.cuiwjava.container;
-
-
+import com.cuiwjava.container.Person;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,10 +16,10 @@ public class ContainerTest {
 
     @Autowired
     private Person person;
-    @Autowired
-    private BeanFactory beanFactory;
-    @Autowired
-    private ApplicationContext ctx;
+//    @Autowired
+//    private BeanFactory beanFactory;
+//    @Autowired
+//    private ApplicationContext ctx;
     @Test
     public void test1(){
         System.out.println(person);

@@ -7,5 +7,7 @@ package com.cuiwjava.createbean._02_static_factory;
  * @Created by cuiwjava
  */
 public class Cat2 {
-
+    Cat2(){
+        System.out.println(" Cat2 构造器 ");
+    }
 }

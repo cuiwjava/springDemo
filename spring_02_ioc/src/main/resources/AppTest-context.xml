@@ -3,7 +3,17 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
-
+    <!-- 构造器实例化 最标准使用最多-->
     <bean id="cat1" class="com.cuiwjava.createbean._01_constructor.Cat1"/>
+    <!-- 静态工厂方法实例化-->
+    <bean id="cat2" class="com.cuiwjava.createbean._02_static_factory.Cat2Factory"
+     factory-method="createInstance"/>
+    <!-- 实例工厂方法实例化 -->
+    <bean id="cat3Factory" class="com.cuiwjava.createbean._03_instance_fatory.Cat3Factory"/>
+    <bean id="cat3" factory-bean="cat3Factory" factory-method="createInstance"/>
+
+    <bean id="cat4" class="com.cuiwjava.createbean._04_factory_bean.Cat4Factory">
+        <property name="username" value="222"/>
+    </bean>
 
 </beans>

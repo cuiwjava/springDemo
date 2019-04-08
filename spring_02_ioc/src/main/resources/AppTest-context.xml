@@ -17,7 +17,8 @@
     </bean>
 
     <bean id="dog" class="com.cuiwjava.createbean.scope.Dog"/>
-
+    <!-- init-method 定义初始化方法，在构造器执行之后，立马执行
+     destroy-method 定义销毁之前的方法 在销毁执行之前，调用-->
     <bean id="myDataSource" class="com.cuiwjava.createbean.lifecycle.MyDatasource"
     init-method="open" destroy-method="close"/>
 </beans>

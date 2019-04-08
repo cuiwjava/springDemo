@@ -16,4 +16,8 @@
         <property name="username" value="222"/>
     </bean>
 
+    <bean id="dog" class="com.cuiwjava.createbean.scope.Dog"/>
+
+    <bean id="myDataSource" class="com.cuiwjava.createbean.lifecycle.MyDatasource"
+    init-method="open" destroy-method="close"/>
 </beans>

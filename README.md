@@ -58,8 +58,33 @@ bean实例化方式
 4. 实现FactoryBean接口实例化：实例工厂变种，如集成MyBatis框架使用:
 org.mybatis.spring.SqlSessionFactoryBean
 
+bean作用域
+在spring容器中是指创建的bean对象相对于其他bean对象的请求可见范围
+<bean id="" class="" scope="作用域" />
 
+singleton:单例，在Spring IOC容器中仅存在一个Bean实例(默认的scope)
 
+prototype:多例，每次从容器中调用Bean时，都返回一个新的实例，即每次调用getBean时，
+相当于执行new XxxBean(); 不会在容器启动时创建对象
 
+request:用于web开发，将Bean放入request范围，request.setAttribute("xxx"),
+在同一个request 获得同一个Bean
 
+session: 用于web开发，将Bean 放入Session范围，在同一个Session获得同一个Bean
+globalSession: 一般用于Porlet应用环境，分布式系统存在全局session概念(单点登录)，
+如果不是prolet环境，globalSession 等同于Session
 
+application: Scopes a single bean definition to the lifecycle of a ServletContext.
+Only valid in  the context of a web-aware Spring ApplicationContext.
+
+websocket: Scopes a single bean definition to the lifecycle of a WebSocket.
+Only valid in the context of a web-aware Spring ApplicationContext.
+
+Spring5开始出现:websocket,globalSession作废。
+
+###开发中主要使用: scope="singleton",scope="prototype"
+####总结 struts1->action->request
+    struts2->action->prototype
+    其他使用singletoin
+    
+    

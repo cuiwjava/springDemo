@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="base" abstract="true">
+        <property name="name" value="cuiwjava"/>
+        <property name="age" value="18"/>
+    </bean>
+
+    <bean id="someBean1" class="com.cuiwjava.bean_inheritance.SomeBean1" parent="base">
+        <property name="weight" value="120"/>
+    </bean>
+
+    <bean id="someBean2" class="com.cuiwjava.bean_inheritance.SomeBean2" parent="base">
+        <property name="height" value="180"/>
+    </bean>
+
+</beans>

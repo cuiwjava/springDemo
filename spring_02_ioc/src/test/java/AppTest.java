@@ -13,7 +13,7 @@ import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
  * @Date 2019/4/3/003 0:11
  * @Created by cuiwjava
  */
-@SpringJUnitConfig
+
 public class AppTest {
     @Autowired
     private Cat1 cat1;

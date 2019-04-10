@@ -1,12 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="dog" class="com.cuiwjava.xml_autowired.Dog"/>
 
     <bean id="person" class="com.cuiwjava.xml_autowired.Person" autowire="byName"/>
+
+    <bean class="com.cuiwjava.di_setter.Employee" id="employee">
+        <property name="name" value="cuiwjava"/>
+        <property name="age" value="22"/>
+        <property name="salary" value="2233"/>
+    </bean>
+
+    <bean id="cat1" class="com.cuiwjava.di_setter.Cat1"/>
+
+    <bean class="com.cuiwjava.di_setter.Person1">
+        <property name="cat1" ref="cat1"/>
+    </bean>
+
+    <bean class="com.cuiwjava.di_setter.CollectionBean" id="collectionBean">
+        <property name="set">
+            <set>
+                <value>set1</value>
+                <value>set2</value>
+            </set>
+        </property>
+        <property name="list">
+            <list>
+                <value>list1</value>
+                <value>list2</value>
+            </list>
+        </property>
+        <property name="array">
+            <array>
+                <value>array1</value>
+                <value>array2</value>
+            </array>
+        </property>
+        <property name="map">
+            <map>
+                <entry key="key1" value="value1" />
+                <entry key="key2" value="value2" />
+            </map>
+        </property>
+        <property name="properties">
+            <props>
+                <prop key="key1">v1</prop>
+                <prop key="key2">v2</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean class="com.cuiwjava.di_setter.Employee" id="employee2"
+            p:name="lucy" p:age="22" p:salary="1000" />
 
 
 </beans>

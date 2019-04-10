@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--构造器注入：常数类型
+    value ref        name type index
+    -->
+    <bean id="employee" class="com.cuiwjava.di_constructor.Employee">
+        <constructor-arg name="id" value="1" />
+        <constructor-arg name="password" value="wac121381" />
+        <constructor-arg name="username" value="王安成" />
+        <!--设空值的方法-->
+        <!--
+        <constructor-arg  name="username" >
+            <null></null>
+        </constructor-arg>
+        -->
+    </bean>
+
+    <!--构造器注入：对象类型-->
+    <bean id="cat" class="com.cuiwjava.di_constructor.Cat">
+        <property name="name" value="xiaomao" />
+    </bean>
+    <bean id="person" class="com.cuiwjava.di_constructor.Person">
+        <constructor-arg ref="cat" />
+    </bean>
+
+    <!--构造器注入：集合类型-->
+    <bean id="collectionBean" class="com.cuiwjava.di_constructor.CollectionBean">
+        <constructor-arg name="set">
+            <set>
+                <value>set1</value>
+                <value>set2</value>
+            </set>
+        </constructor-arg>
+    </bean>
+
+</beans>

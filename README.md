@@ -102,3 +102,16 @@ ApplicationContext: 在启动Spring容器的时候，就会去创建bean对象
 
 5.调用Bean对象的销毁方法destroy-method
 6.Spring容器销毁
+
+
+实际的生命周期
+![02-7](image/02-7.png)
+
+Bean的完整生命周期经历了各种方法调用，这些方法可以划分为以下几类:
+1.Bean自身方法 : 包括Bean本身调用的方法和通过配置文件中<bean>的init-method和destroy-method指定的方法
+2.Bean级生命周期接口方法: BeanNameAware BeanFactoryAware InitializingBean 和 DiposableBean接口的方法
+3.容器级生命周期接口方法: InstantiationAwareBeanPostProcessor 和 BeanPostProcessor这两个接口实现，
+一般称之为“后处理器”
+4.工厂后处理器接口方法: AspectJWeavingEnabler,ConfigurationClassPostProcessor
+CustomAutowireConfigurer等等非常有用的工厂后处理器 接口的方法。
+工厂后处理器也是容器级的。在应用上下文装配配置文件之后立即调用.

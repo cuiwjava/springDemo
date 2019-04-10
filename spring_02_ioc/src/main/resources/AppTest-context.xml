@@ -21,4 +21,6 @@
      destroy-method 定义销毁之前的方法 在销毁执行之前，调用-->
     <bean id="myDataSource" class="com.cuiwjava.createbean.lifecycle.MyDatasource"
     init-method="open" destroy-method="close"/>
+
+    
 </beans>

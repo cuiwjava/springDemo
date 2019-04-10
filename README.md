@@ -87,4 +87,18 @@ Spring5开始出现:websocket,globalSession作废。
     struts2->action->prototype
     其他使用singletoin
     
-    
+bean生命周期: bean从出身--消亡直接的整个过程
+
+BeanFactory:     延迟初始化特点
+ApplicationContext: 在启动Spring容器的时候，就会去创建bean对象
+
+<bean id="" class="" init-method="" destroy-method="" />
+
+1.启动Spring容器
+2.创建Bean对象 ---> 实例在调用Bean对象的构造器
+3.调用Bean对象的初始化init-method
+
+4.我们获取bean对象，调用Bean对象中的某一个方法
+
+5.调用Bean对象的销毁方法destroy-method
+6.Spring容器销毁

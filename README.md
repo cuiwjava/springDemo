@@ -104,10 +104,10 @@ ApplicationContext: 在启动Spring容器的时候，就会去创建bean对象
 6.Spring容器销毁
 
 
-实际的生命周期
+####实际的生命周期
 ![02-7](image/02-7.png)
 
-Bean的完整生命周期经历了各种方法调用，这些方法可以划分为以下几类:
+####Bean的完整生命周期经历了各种方法调用，这些方法可以划分为以下几类:
 1.Bean自身方法 : 包括Bean本身调用的方法和通过配置文件中<bean>的init-method和destroy-method指定的方法
 2.Bean级生命周期接口方法: BeanNameAware BeanFactoryAware InitializingBean 和 DiposableBean接口的方法
 3.容器级生命周期接口方法: InstantiationAwareBeanPostProcessor 和 BeanPostProcessor这两个接口实现，
@@ -115,3 +115,29 @@ Bean的完整生命周期经历了各种方法调用，这些方法可以划分�
 4.工厂后处理器接口方法: AspectJWeavingEnabler,ConfigurationClassPostProcessor
 CustomAutowireConfigurer等等非常有用的工厂后处理器 接口的方法。
 工厂后处理器也是容器级的。在应用上下文装配配置文件之后立即调用.
+
+#####什么是注入操作?
+setter方法
+User u = new User();
+u.setName("cuiwjava");
+构造器
+new User("cuiwjava");
+#####注入值类型
+1. 常量值(简单类型): value元素
+常量类型(固定不变),其实就是一个值，简单类型
+2. 对象: ref元素
+各自集合对于的元素<set><list><map>
+3. 集合: 对应集合类型元素
+
+设置: <bean/> 元素的: autowire属性
+<bean id="somebean" class="SomeBean全限定名" autowire="byType" />
+autowire属性让Spring按照一定的规则方式自己去找合适的对象，并完成DI操作。
+-default不要自动注入，缺省default表示no
+-no 不要自动注入
+-byName 按照名字注入 属性的名字在Spring中找bean factory.getBean(String beanName)
+-byType按照依赖对象的类型注入 factory.getBean(Class requiredType)
+-constructor按照对象的构造器上面的参数类型注入
+注意:
+1.如果按照byName自动注入 要求所有的属性名字和id的名字必须保证一种规范的命名方式;
+2.如果按照byType注入，如果Spring中同一个类型有多个实例-->报bean不是唯一类型错误
+该类型不推荐 了解即可

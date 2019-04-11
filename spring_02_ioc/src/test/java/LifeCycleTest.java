@@ -1,5 +1,4 @@
-package com.cuiwjava.createbean.lifecycle;
-
+import com.cuiwjava.createbean.lifecycle.MyDatasource;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import lombok.Cleanup;

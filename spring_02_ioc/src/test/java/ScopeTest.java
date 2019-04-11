@@ -1,17 +1,16 @@
-package com.cuiwjava.createbean.scope;
-
+import com.cuiwjava.createbean.scope.Dog;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-/**
- * @Classname AppTest
- * @Description TODO
- * @Date 2019/4/9/009 7:27
- * @Created by cuiwjava
- */
-@SpringJUnitConfig
-public class AppTest {
+
+@RunWith(SpringJUnit4ClassRunner.class)
+// 上下文配置对象
+@ContextConfiguration("classpath:AppTest-context.xml")
+public class ScopeTest {
     @Autowired
     private Dog dog1;
     @Autowired
@@ -19,7 +18,7 @@ public class AppTest {
     @Autowired
     private Dog dog3;
     @Test
-    void test(){
+    public void test(){
         System.out.println(dog1);
         System.out.println(dog2);
         System.out.println(dog3);

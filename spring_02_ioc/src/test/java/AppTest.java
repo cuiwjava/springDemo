@@ -4,8 +4,11 @@ import com.cuiwjava.createbean._02_static_factory.Cat2Factory;
 import com.cuiwjava.createbean._03_instance_fatory.Cat3;
 import com.cuiwjava.createbean._03_instance_fatory.Cat3Factory;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
  * @Classname App
@@ -13,7 +16,9 @@ import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
  * @Date 2019/4/3/003 0:11
  * @Created by cuiwjava
  */
-
+@RunWith(SpringJUnit4ClassRunner.class)
+// 上下文配置对象
+@ContextConfiguration("classpath:AppTest-context.xml")
 public class AppTest {
     @Autowired
     private Cat1 cat1;

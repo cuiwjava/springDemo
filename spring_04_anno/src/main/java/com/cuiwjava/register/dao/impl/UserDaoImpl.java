@@ -1,39 +1,36 @@
 package com.cuiwjava.register.dao.impl;
 
-import com.alibaba.druid.pool.DruidDataSource;
-import com.wac.springtest.di_anno.register.dao.IUserDao;
-import com.wac.springtest.di_anno.register.domain.User;
+import com.cuiwjava.register.dao.IUserDao;
+import com.cuiwjava.register.domain.User;
 import lombok.Cleanup;
 import lombok.Setter;
 import lombok.SneakyThrows;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
-
+import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-@Repository()
 public class UserDaoImpl implements IUserDao {
 
-    private final DruidDataSource dataSource;
+//    @Setter
+    private DataSource dataSource;
 
-    @Autowired
-    public UserDaoImpl(DruidDataSource dataSource) {
+    public void setDataSource(DataSource dataSource) {
         this.dataSource = dataSource;
     }
 
     @SneakyThrows
     public void save(User user) throws SQLException {
+        System.out.println(" save operator ");
         @Cleanup
         Connection conn = dataSource.getConnection();
-        String sql = "insert into user(id,name,age) values(?,?,?)";
+        String sql = "INSERT INTO user(name,age) VALUES(?,?)";
         @Cleanup
         PreparedStatement ps = conn.prepareStatement(sql);
-        ps.setInt(1,user.getId());
-        ps.setString(2,user.getName());
-        ps.setInt(3,user.getAge());
+        ps.setString(1, user.getName());
+        ps.setInt(2,user.getAge());
         ps.executeUpdate();
+
     }
 
 }

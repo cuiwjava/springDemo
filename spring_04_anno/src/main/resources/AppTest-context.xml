@@ -15,4 +15,7 @@
                 <property name="cat" ref="cat"/>
         </bean>
 
+        <bean id="valueBean" class="com.cuiwjava.register.di.ValueBean"></bean>
+
+
 </beans>

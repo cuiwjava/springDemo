@@ -1,5 +1,6 @@
 import com.cuiwjava.register.action.UserAction;
 import com.cuiwjava.register.di.Person;
+import com.cuiwjava.register.di.ValueBean;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,9 @@ public class AppTest {
 	@Autowired
 	private Person person;
 
+	@Autowired
+	private ValueBean valueBean;
+
 	@Test
 	public void test() throws SQLException {
 		userAction.execute();
@@ -34,5 +38,9 @@ public class AppTest {
 		System.out.println(person);
 	}
 
-
+	@Test
+	public void test2(){
+		System.out.println(person);
+		System.out.println(valueBean);
+	}
 }

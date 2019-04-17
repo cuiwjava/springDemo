@@ -30,3 +30,13 @@ public void setter(OtherBean otherBean , OtherBean other2){
 @Service用于标注业务层组件
 @Controller用于标注控制层组件 (struts中的Action, SpringMVC的Controller)
 
+使用注解并不能完全替代XML配置
+比如配置连接池DruiDataSource，我们就不能到这个类中去贴注解、
+JavaConfig + 注解
+
+@Setter注解贴到字段上面，仅仅是生成一个Setter方法
+
+@Autowired 注解贴在字段上面 自动从Spring容器中去找到匹配的对象，
+被设置给该字段
+
+

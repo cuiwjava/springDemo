@@ -1,6 +1,8 @@
 import com.cuiwjava.register.action.UserAction;
 import com.cuiwjava.register.di.Person;
 import com.cuiwjava.register.di.ValueBean;
+import com.cuiwjava.register.ioc.MyDataSource;
+import com.cuiwjava.register.lifecycle.SomeBean;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +30,15 @@ public class AppTest {
 	@Autowired
 	private ValueBean valueBean;
 
+	@Autowired
+	private MyDataSource myDataSource;
+
+	@Autowired
+	private SomeBean bean1;
+
+	@Autowired
+	private SomeBean bean2;
+
 	@Test
 	public void test() throws SQLException {
 		userAction.execute();
@@ -43,4 +54,17 @@ public class AppTest {
 		System.out.println(person);
 		System.out.println(valueBean);
 	}
+
+	@Test
+	public void test3(){
+		System.out.println(myDataSource);
+	}
+
+	@Test
+	public void test4(){
+		System.out.println(bean1);
+		System.out.println(bean2);
+		bean1.doWork();
+	}
+
 }

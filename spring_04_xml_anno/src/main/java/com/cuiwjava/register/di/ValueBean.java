@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Value;
  * @Created by cuiwjava
  */
 public class ValueBean {
-    @Value("${server.porperties}")
+   // @Value("${service.porperties}")
     private int port;
 
     @Override

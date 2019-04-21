@@ -21,8 +21,6 @@ import java.sql.SQLException;
 @RunWith(SpringJUnit4ClassRunner.class)
 public class AppTest {
 
-	@Autowired
-	private UserAction userAction;
 
 	@Autowired
 	private Person person;
@@ -39,10 +37,6 @@ public class AppTest {
 	@Autowired
 	private SomeBean bean2;
 
-	@Test
-	public void test() throws SQLException {
-		userAction.execute();
-	}
 
 	@Test
 	public void test1() {

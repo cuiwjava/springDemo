@@ -12,21 +12,22 @@ import java.sql.SQLException;
 
 public class UserDaoImpl implements IUserDao {
 
-//    @Setter
+    @Setter
     private DataSource dataSource;
 
-    public void setDataSource(DataSource dataSource) {
-        this.dataSource = dataSource;
-    }
+//    public void setDataSource(DataSource dataSource) {
+//        this.dataSource = dataSource;
+//    }
 
     @SneakyThrows
     public void save(User user) throws SQLException {
         System.out.println(" save operator ");
         @Cleanup
         Connection conn = dataSource.getConnection();
-        String sql = "INSERT INTO user(name,age) VALUES(?,?)";
+        String sql = "INSERT INTO user1(name,age) VALUES(?,?)";
         @Cleanup
         PreparedStatement ps = conn.prepareStatement(sql);
+        System.out.println(" username "+user.getName() + "age " + user.getAge());
         ps.setString(1, user.getName());
         ps.setInt(2,user.getAge());
         ps.executeUpdate();

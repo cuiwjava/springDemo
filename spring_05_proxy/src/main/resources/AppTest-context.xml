@@ -9,13 +9,13 @@
 
         <bean id="employeeDAO" class="com.cuiwjava.dao.impl.EmployeeDAOImpl" ></bean>
 
-        <bean id="employeeService" class="com.cuiwjava.service.impl.EmployeeServiceImpl" >
-                <property name="dao" ref="employeeDAO" />
-        </bean>
+        <!--<bean id="employeeService" class="com.cuiwjava.service.impl.EmployeeServiceImpl" >-->
+                <!--<property name="dao" ref="employeeDAO" />-->
+        <!--</bean>-->
         <bean id="transactionManager" class="com.cuiwjava.tx.TransactionManager"/>
        <!-- 代理对象 -->
         <bean class="com.cuiwjava.proxy.EmployeeServiceProxy" id="employeeServiceProxy">
-                <property name="target" ref="employeeService">
+                <property name="target" >
                         <bean class="com.cuiwjava.service.impl.EmployeeServiceImpl" >
                                 <property name="dao" ref="employeeDAO" />
                         </bean>

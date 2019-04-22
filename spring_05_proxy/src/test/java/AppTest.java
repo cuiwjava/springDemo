@@ -23,6 +23,8 @@ public class AppTest {
 
     @Test
     public void testSave(){
+        System.out.println(" 真实对象的类型  "+service.getClass());
+
         service.save(new Employee());
         System.out.println("保存成功");
     }

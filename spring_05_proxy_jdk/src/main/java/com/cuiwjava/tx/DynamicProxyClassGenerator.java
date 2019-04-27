@@ -1,5 +1,6 @@
 package com.cuiwjava.tx;
 
+import com.cuiwjava.service.impl.EmployeeServiceImpl;
 import sun.misc.ProxyGenerator;
 
 import java.io.FileNotFoundException;
@@ -13,8 +14,8 @@ import java.io.IOException;
  * @Created by cuiwjava
  */
 public class DynamicProxyClassGenerator {
-    public static void main(String[] args) {
-
+    public static void main(String[] args) throws IOException {
+        generateClassFile(EmployeeServiceImpl.class,"EmployeeServiceProxy");
     }
 //生成代理类的字节码
     public static void generateClassFile(Class targetClass,String proxyName) throws IOException {
@@ -24,7 +25,7 @@ public class DynamicProxyClassGenerator {
         String path = targetClass.getResource("-").getPath();
         System.out.println(path);
         FileOutputStream out = null;
-        //保留网盘中
+        //保留到硬盘中
         out = new FileOutputStream(path + proxyName + ".class");
         out.write(classFile);
         out.close();

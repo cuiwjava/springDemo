@@ -3,7 +3,6 @@ package com.cuiwjava.tx;
 import com.cuiwjava.service.impl.EmployeeServiceImpl;
 import sun.misc.ProxyGenerator;
 
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 

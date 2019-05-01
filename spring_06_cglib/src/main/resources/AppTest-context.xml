@@ -20,6 +20,4 @@
                 <property name="transactionManager" ref="transactionManager" />
         </bean>
 
-
-
 </beans>

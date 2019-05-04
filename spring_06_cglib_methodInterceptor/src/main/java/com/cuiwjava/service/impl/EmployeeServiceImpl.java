@@ -3,9 +3,6 @@ package com.cuiwjava.service.impl;
 import com.cuiwjava.dao.IEmployeeDAO;
 import com.cuiwjava.domain.Employee;
 import com.cuiwjava.service.IEmployeeService;
-import org.junit.Test;
-
-import java.util.List;
 
 /**
  * @Classname EmployeeServiceImpl
@@ -27,16 +24,5 @@ public class EmployeeServiceImpl implements IEmployeeService {
 
     public void update(Employee employee) {
        dao.update(employee);
-    }
-
-    public void delete(Long id) {
-//        dao.(id);
-        System.out.println(" delete");
-    }
-
-    @Test
-    public List<Employee> listAll() {
-        System.out.println(" listAll ");
-        return null;
     }
 }

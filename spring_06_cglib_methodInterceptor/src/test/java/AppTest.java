@@ -1,6 +1,6 @@
 import com.cuiwjava.domain.Employee;
-import com.cuiwjava.service.IEmployeeService;
-import com.cuiwjava.tx.TransactionManagerAdvice;
+import com.cuiwjava.log.LogAdvice;
+import com.cuiwjava.service.impl.EmployeeServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,22 +17,23 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration("classpath:AppTest-context.xml")
 @RunWith(SpringJUnit4ClassRunner.class)
 public class AppTest {
+
     @Autowired
-    private TransactionManagerAdvice transactionManagerAdvice;
+    private LogAdvice advice;
 
     @Test
-    public void testSave(){
-        IEmployeeService proxyObject = transactionManagerAdvice.getProxyObject();
-        proxyObject.save(new Employee());
-        System.out.println(proxyObject);
+    public void testSave() throws Exception{
+        EmployeeServiceImpl proxy = advice.getProxyObject();
+        proxy.save(new Employee());
+        System.out.println(proxy.getClass());
     }
+
     @Test
     public void testUpdate(){
-
+        EmployeeServiceImpl proxy = advice.getProxyObject();
+        proxy.update(new Employee());
+        System.out.println(proxy.getClass());
     }
 
-    @Test
-    public void testlistAll(){
 
-    }
 }

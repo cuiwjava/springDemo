@@ -40,3 +40,9 @@ args 当前调用方法的实参
 jdk动态代理操作步骤
 
 1.实现InvocationHandler接口, 创建自己增强代码的处理器
+
+Filter就是对请求和相应做拦截
+Interceptor 整个Java领域的概念 不仅可以运用到service层,
+还可以用到Web层
+
+需求: 在每一个service方法调用之前，做日志记录

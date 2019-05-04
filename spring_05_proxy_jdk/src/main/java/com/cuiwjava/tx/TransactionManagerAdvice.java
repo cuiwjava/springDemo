@@ -1,7 +1,6 @@
 package com.cuiwjava.tx;
 
 import java.lang.reflect.InvocationHandler;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
@@ -36,6 +35,10 @@ public class TransactionManagerAdvice implements InvocationHandler{
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         System.out.println(proxy.getClass());
         System.out.println(method);
+        if (method.getName().startsWith("get") || method.getName().startsWith("list")) {
+            return method.invoke(target, args);
+        }
+
         transactionManager.begin();
         Object ret = null;// 调用真实对象的 方法
         try {

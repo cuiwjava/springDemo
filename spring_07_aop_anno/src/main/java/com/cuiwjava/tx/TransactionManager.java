@@ -2,6 +2,8 @@ package com.cuiwjava.tx;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Aspect;
+import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 
@@ -12,6 +14,8 @@ import java.util.Arrays;
  * @Created by cuiwjava
  */
 // 模拟事务管理器
+@Component
+@Aspect
 public class TransactionManager {
 
     public void begin(JoinPoint joinPoint){

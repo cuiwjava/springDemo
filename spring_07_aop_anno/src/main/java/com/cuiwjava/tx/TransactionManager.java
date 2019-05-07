@@ -2,7 +2,7 @@ package com.cuiwjava.tx;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
@@ -18,6 +18,11 @@ import java.util.Arrays;
 @Aspect
 public class TransactionManager {
 
+    @Pointcut("execution(*  com.cuiwjava.service.*Service.*(..))")
+    public void txPoint(){
+    }
+
+    @Before("txPoint()")
     public void begin(JoinPoint joinPoint){
 //        System.out.println("代理对象"+joinPoint.getThis().getClass());
 //        System.out.println("目标对象"+joinPoint.getTarget().getClass());
@@ -26,19 +31,19 @@ public class TransactionManager {
 //        System.out.println("当前连接点的类型"+joinPoint.getKind());
         System.out.println("开启事务");
     }
-
+    @AfterReturning("txPoint()")
     public void commit(JoinPoint joinPoint){
         System.out.println("提交事务");
     }
-
+    @AfterThrowing(value="txPoint()",throwing = "ex")
     public void rollback(JoinPoint joinPoint,Throwable ex){
         System.out.println("回滚事务,异常信息"+ ex.getMessage());
     }
-
+    @After("txPoint()")
     public void close(JoinPoint joinPoint){
         System.out.println("释放资源");
     }
-
+//    @Around("txPoint()")
     public Object aroundMethod(ProceedingJoinPoint pjp){
         Object ret = null;
         System.out.println("开启事务");

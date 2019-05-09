@@ -12,8 +12,13 @@ import org.springframework.stereotype.Service;
  * @Date 2019/4/21/021 23:55
  * @Created by cuiwjava
  */
+
+/**
+ * CGLIB 方式不需要实现接口
+ *
+ */
 @Service
-public class EmployeeServiceImpl implements IEmployeeService {
+public class EmployeeServiceImpl /*implements IEmployeeService  1/ */ {
     @Autowired
     private IEmployeeDAO dao;
 

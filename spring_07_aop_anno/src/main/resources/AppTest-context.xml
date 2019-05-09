@@ -14,7 +14,9 @@
         <!-- IoC注解解析器 -->
     <context:component-scan base-package="com.cuiwjava" />
     <!-- AOP注解解析器 -->
-    <aop:aspectj-autoproxy proxy-target-class="true" />
+    <aop:aspectj-autoproxy
+            proxy-target-class="true"
+    />
 
       <!--  <bean id="employeeDAO" class="com.cuiwjava.dao.impl.EmployeeDAOImpl" ></bean>
 

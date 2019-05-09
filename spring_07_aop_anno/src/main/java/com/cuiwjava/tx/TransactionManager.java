@@ -18,7 +18,12 @@ import java.util.Arrays;
 @Aspect
 public class TransactionManager {
 
-    @Pointcut("execution(*  com.cuiwjava.service.*Service.*(..))")
+//    @Pointcut("execution(*  com.cuiwjava.service.*Service.*(..))")// JDK代理模式
+    /**
+     * 如果采用CGLIB代理 不需要实现接口 需要注解在测试时候修改此处的Pointcut
+     *
+     */
+    @Pointcut("execution(*  com.cuiwjava.service.impl.*.*(..))")
     public void txPoint(){
     }
 

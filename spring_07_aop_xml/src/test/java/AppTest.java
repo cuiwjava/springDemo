@@ -20,7 +20,6 @@ public class AppTest {
     @Autowired
     private IEmployeeService  service;
 
-
     @Test
     public void testSave() throws Exception{
         System.out.println(service.getClass());

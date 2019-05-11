@@ -15,9 +15,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * @Date 2019/4/9/009 7:27
  * @Created by cuiwjava
  */
-
-@ContextConfiguration("classpath:AppTest-context.xml")
 @RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration("classpath:AppTest-context.xml")
 public class AppTest {
 
     @Autowired

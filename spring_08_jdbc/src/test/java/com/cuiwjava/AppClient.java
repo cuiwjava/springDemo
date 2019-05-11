@@ -1,3 +1,5 @@
+package com.cuiwjava;
+
 import com.cuiwjava.jdbc.dao.IEmployeeDao;
 import com.cuiwjava.jdbc.domain.Employee;
 import org.junit.Test;

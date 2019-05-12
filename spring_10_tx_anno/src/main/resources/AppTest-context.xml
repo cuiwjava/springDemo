@@ -13,12 +13,17 @@
        http://www.springframework.org/schema/tx
        http://www.springframework.org/schema/aop/spring-tx.xsd
 ">
-
+    <!-- DI注解解析器 -->
     <context:component-scan base-package="com.cuiwjava"/>
-
+    <!-- IOC注解解析器 -->
     <context:annotation-config/>
+    <!--  TX注解解析器-->
+    <bean id="txManage" class="org.springframework.jdbc.datasource.DataSourceTransactionManager" >
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+    <tx:annotation-driven />
 
-    <context:property-placeholder location="classpath:db.properties"/>
+    <context:property-placeholder location="classpath::db.properties"/>
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
         <property name="driverClassName" value="${jdbc.driverClassName}"/>
         <property name="url" value="${jdbc.url}"/>
@@ -35,37 +40,6 @@
     <bean id="accountService" class="com.cuiwjava.service.impl.AccountServiceImpl">
         <property name="accountDao" ref="accountDao"/>
     </bean>
-
-
-    <!-- ========================================= -->
-    <!-- WHAT:配置JDBC事务管理器-->
-    <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <property name="dataSource" ref="dataSource"/>
-    </bean>
-
-    <!-- WHEN 配置事务管理器增强 -->
-    <tx:advice id="txAdvice" transaction-manager="txManager" >
-        <tx:attributes>
-            <tx:method name="trans"/>
-        </tx:attributes>
-    </tx:advice>
-
-    <!-- WHERE配置切面-->
-    <aop:config>
-        <aop:pointcut id="txPt" expression="execution(* com.cuiwjava.service.*Service.*(..))" />
-        <aop:advisor advice-ref="txAdvice" pointcut-ref="txPt"/>
-    </aop:config>
-
-    <tx:advice id="crudAdvice" transaction-manager="txManager">
-        <tx:attributes>
-            <tx:method name="get*" read-only="true" propagation="REQUIRED"/>
-            <tx:method name="list*" read-only="true" propagation="REQUIRED"/>
-            <tx:method name="query*" read-only="true" propagation="REQUIRED"/>
-
-            <tx:method name="*" propagation="REQUIRED" />
-        </tx:attributes>
-    </tx:advice>
-
 
 
 </beans>

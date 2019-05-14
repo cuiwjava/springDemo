@@ -5,6 +5,10 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd">
     <bean id="helloWorld" class="com.cuiwjava.hello.HelloWorld">
         <!--必须有setUsername()方法 Spring ioc容器创建时 使用下面指定的属性创建对象-->
-        <property name="username" value="cuiw"/>
+    <!--    <property name="username" value="cuiw"/>-->
+    </bean>
+
+    <bean id="applicationContextHelper" class="com.cuiwjava.hello.ApplicationContextHelper">
+
     </bean>
 </beans>

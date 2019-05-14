@@ -14,6 +14,7 @@ import java.lang.reflect.Constructor;
 /**
  * @Classname HelloWorldTest
  * @Description TODO
+ *
  * @Date 2019/3/31/031 12:11
  * @Created by cuiwjava
  */
@@ -23,7 +24,7 @@ public class HelloWorldTest {
     void testOld(){
         HelloWorld world = new HelloWorld();
         world.setUsername("hahah");
-        world.sayHello();
+        world.sayHello("kkk");
     }
     @Test
     void testIoC(){
@@ -41,7 +42,7 @@ public class HelloWorldTest {
         // 签名三: <T> T getBean(String name,@Nullable Class<T> requiredTYpe);
         // 根据bean的类型 + ID名称去寻找，推荐的
         world = factory.getBean("helloWorld", HelloWorld.class);
-        world.sayHello();
+        world.sayHello("jjj");
     }
     @Test
     void testIoCMock() throws Exception {
@@ -68,7 +69,7 @@ public class HelloWorldTest {
         }
         world = (HelloWorld) obj;
 
-        world.sayHello();
+        world.sayHello("jj");
 
     }
 }

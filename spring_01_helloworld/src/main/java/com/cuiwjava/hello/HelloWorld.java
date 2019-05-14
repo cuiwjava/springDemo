@@ -1,5 +1,8 @@
 package com.cuiwjava.hello;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 /**
  * @Classname hello
  * @Description TODO
@@ -7,16 +10,23 @@ package com.cuiwjava.hello;
  * @Created by cuiwjava
  */
 public class HelloWorld {
-    private String username;
+
+    @Autowired
+    private static String username;
 
     public HelloWorld(){
 
     }
+
     public void setUsername(String username) {
         this.username = username;
     }
 
-    public void sayHello(){
+    public String getUsername() {
+        return username;
+    }
+
+    public void sayHello(String username){
         System.out.println("欢迎来到Spring帝国，你好: "+ username);
     }
 }

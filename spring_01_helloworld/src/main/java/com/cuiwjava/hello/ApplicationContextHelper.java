@@ -17,13 +17,19 @@ public class ApplicationContextHelper implements ApplicationContextAware {
         return context;
     }
 
-    public static Object  getBean(String beanName){
-        return context.getBean(beanName);
+    public static <T> T getBean(String beanName){
+        return (T) context.getBean(beanName) ;
     }
+
+//    public static Object  getBean(String beanName){
+//        return context.getBean(beanName);
+//    }
     public static Object getBean(String beanName,Object... obj){
         return context.getBean(beanName,obj);
     }
     public static Object getBean(String beanName, Type t){
         return context.getBean(beanName,t);
     }
+
+
 }

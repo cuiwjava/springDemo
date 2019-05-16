@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="staticMethod" value="com.cuiwjava.core.DomainDistribution.setDomainInfo"/>
+        <property name="arguments">
+            <array>
+                <value>{"convert":"word2spell,cn2spark,pingindic,low2up,fullhalf"}</value>
+                <value>{"color":"cj,img,online,page,select,use,web"}</value>
+            </array>
+        </property>
+    </bean>
+
+    <bean id="applicationContextHelper" class="com.cuiwjava.utils.ApplicationContextHelper">
+
+    </bean>
+
+
+    <bean id="testStatic" class="com.cuiwjava.xmls.TestStatic" >
+        <property name="from" value="abc" />
+    </bean>
+</beans>

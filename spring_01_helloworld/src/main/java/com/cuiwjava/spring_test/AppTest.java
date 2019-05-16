@@ -18,15 +18,16 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:hello.xml")
 public class AppTest {
-	@Autowired
-	HelloWorld helloWorld;
+//	@Autowired
+//	HelloWorld helloWorld;
 
 	@Test
 	public void test(){
 		ApplicationContext springContext = ApplicationContextHelper.getContext();
-		helloWorld = (HelloWorld) springContext.getBean("helloWorld");
+
+		HelloWorld helloWorld = ApplicationContextHelper.getBean("helloWorld");
 		helloWorld.setUsername("helloWorld");
-		System.out.println();
+		System.out.println(" username is :"+ helloWorld.getUsername());
 
 //		helloWorld.sayHello("helloworld");
 	}

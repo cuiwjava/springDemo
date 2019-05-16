@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
  */
 public class HelloWorld {
 
-    @Autowired
+//    @Autowired
     private static String username;
 
     public HelloWorld(){

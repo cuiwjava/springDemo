@@ -31,6 +31,7 @@ public class AppTest {
 	@Test
 	public void test2(){
 		testStatic = ApplicationContextHelper.getBean("testStatic");
+		testStatic.setFrom("haha");
 		System.out.println(testStatic.getFrom());
 	}
 

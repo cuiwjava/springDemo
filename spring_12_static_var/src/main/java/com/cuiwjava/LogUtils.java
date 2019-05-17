@@ -6,9 +6,10 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class LogUtils {
-private static SysLogService sysLogService;
-@Autowired
-public void setSysLogService(SysLogService sysLogService) {
-LogUtils.sysLogService = sysLogService;
-}
+	private static SysLogService sysLogService;
+
+	@Autowired
+	public void setSysLogService(SysLogService sysLogService) {
+		LogUtils.sysLogService = sysLogService;
+	}
 }

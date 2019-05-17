@@ -18,6 +18,9 @@
 
     </bean>
 
+    <!--<bean value="tt" >-->
+        <!--<property name="testStatic" ref="testStatic"/>-->
+    <!--</bean>-->
 
     <bean id="testStatic" class="com.cuiwjava.xmls.TestStatic" >
         <property name="from" value="abc" />

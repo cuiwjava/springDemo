@@ -7,7 +7,7 @@ package com.cuiwjava.xmls;
  * @Created by cuiwei34
  */
 public class TestStatic {
-	private static String from;
+	public static String from;
 
 	public  String getFrom() {
 		return from;
@@ -17,5 +17,8 @@ public class TestStatic {
 		TestStatic.from = from;
 	}
 
+	public static void main(String[] args) {
+
+	}
 
 }

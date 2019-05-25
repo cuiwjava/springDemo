@@ -5,6 +5,7 @@ import com.cuiwjava.hello.HelloWorld;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -25,7 +26,7 @@ public class AppTest {
 	public void test(){
 		ApplicationContext springContext = ApplicationContextHelper.getContext();
 
-		HelloWorld helloWorld = ApplicationContextHelper.getBean("helloWorld");
+		HelloWorld helloWorld = ApplicationContextHelper.getBean("helloWorld2");
 		helloWorld.setUsername("helloWorld");
 		System.out.println(" username is :"+ helloWorld.getUsername());
 

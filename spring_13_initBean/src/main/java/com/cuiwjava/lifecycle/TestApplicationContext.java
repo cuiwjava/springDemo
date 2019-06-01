@@ -12,6 +12,7 @@ import org.springframework.context.ApplicationContextAware;
  */
 public class TestApplicationContext implements ApplicationContextAware {
 
+    @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         System.out.println(applicationContext.getBean("applicationContextHelper"));
     }

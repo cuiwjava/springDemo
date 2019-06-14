@@ -34,12 +34,18 @@ public class BeanCreatorImpl implements BeanCreator {
         return object;
 
     }
+
+    @Override
+    public Object createBeanUseDefineConstruce(String className, List<Object> args) {
+        return null;
+    }
+
     /**
      * className:类的名字
      * args:配置的构造参数
      */
 
-    @Override
+
     public Object createBeanUseDefineConstruct(String className, List<Object> args) {
 
         Class[] argsClass=getArgsClasses(args);

@@ -13,6 +13,7 @@ import java.io.IOException;
  * @Created by cuiwei34
  */
 public class IocEntityResolver implements EntityResolver {
+	@Override
 	public InputSource resolveEntity(String publicId, String systemId) throws SAXException, IOException {
 		return null;
 	}

@@ -1,6 +1,8 @@
 package com.cuiwjava.impl;
 
-public class NoAutoWire implements AutoWire{
+import com.cuiwjava.interfacex.AutoWire;
+
+public class NoAutoWire implements AutoWire {
     
     String value;
 
@@ -8,6 +10,7 @@ public class NoAutoWire implements AutoWire{
         this.value = value;
     }
 
+    @Override
     public String getValue() {
         return value;
     }

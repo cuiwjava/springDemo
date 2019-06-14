@@ -13,6 +13,7 @@ public class ElementLoaderImpl implements ElementLoader {
 
     private Map<String, Element> elements=new HashMap<String, Element>();
 
+    @Override
     public void addElements(Document doc) {
 
         @SuppressWarnings("unchecked")
@@ -26,11 +27,13 @@ public class ElementLoaderImpl implements ElementLoader {
         }
     }
 
+    @Override
     public Element getElement(String id) {
 
         return elements.get(id);
     }
 
+    @Override
     public Collection<Element> getElements() {
 
         return this.elements.values();

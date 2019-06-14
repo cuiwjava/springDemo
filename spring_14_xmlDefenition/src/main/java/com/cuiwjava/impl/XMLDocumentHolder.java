@@ -14,6 +14,7 @@ public class XMLDocumentHolder implements DocumentHolder {
     private Map<String, Document> docs = new HashMap<String, Document>();
 
 
+    @Override
     public Document getDocument(String filePath) {
         
         Document doc=this.docs.get(filePath);//用HashMap先根据路径获取文档

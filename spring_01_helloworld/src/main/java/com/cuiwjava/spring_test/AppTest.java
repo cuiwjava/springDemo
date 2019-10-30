@@ -27,9 +27,10 @@ public class AppTest {
 		ApplicationContext springContext = ApplicationContextHelper.getContext();
 
 		HelloWorld helloWorld = ApplicationContextHelper.getBean("helloWorld2");
+		System.out.println(" helloWorld is "+ helloWorld.getClass().getName());
 		helloWorld.setUsername("helloWorld");
 		System.out.println(" username is :"+ helloWorld.getUsername());
 
-//		helloWorld.sayHello("helloworld");
+		helloWorld.sayHello("helloworld");
 	}
 }
